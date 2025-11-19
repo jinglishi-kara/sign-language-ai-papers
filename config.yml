@@ -1,0 +1,7 @@
+title: "Sign Language & AI Papers"
+description: "Automatic digest of latest research on sign language and AI"
+theme: minima   # built-in Jekyll theme supported by GitHub Pages
+plugins:
+  - jekyll-feed
+
+# GitHub Pages usually builds from the repo root; no extra settings needed
