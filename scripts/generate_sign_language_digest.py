@@ -14,6 +14,22 @@ from textwrap import shorten
 import arxiv
 from dateutil import parser as date_parser
 
+# Canonical ordering for source-site groupings in the output.
+SOURCE_SITES = [
+    "arXiv",
+    "NeurIPS",
+    "ICML",
+    "AAAI",
+    "IJCAI",
+    "ACL",
+    "NAACL",
+    "EMNLP",
+    "COLING",
+    "CVPR",
+    "ICCV",
+    "ECCV",
+]
+
 # -------- Agent 0: Topic Agent -------- #
 
 
@@ -103,6 +119,7 @@ def research_agent(max_results=20, days_back=30):
             "updated": result.updated,
             "url": result.entry_id,
             "primary_category": result.primary_category,
+            "comment": getattr(result, "comment", "") or "",
         }
         results.append(paper)
 
@@ -121,6 +138,27 @@ def simple_heuristic_summary(abstract, max_chars=500):
     """
     abstract = " ".join(abstract.split())
     return shorten(abstract, width=max_chars, placeholder="…")
+
+
+def infer_source_site(paper):
+    """
+    Guess which source site (conference/journal) the paper belongs to.
+    Falls back to 'arXiv' if nothing else is detected.
+    """
+    combined_text = " ".join(
+        [
+            paper.get("title", ""),
+            paper.get("summary", ""),
+            paper.get("comment", ""),
+        ]
+    ).lower()
+
+    for site in SOURCE_SITES:
+        if site.lower() == "arxiv":
+            continue
+        if site.lower() in combined_text:
+            return site
+    return "arXiv"
 
 
 def analysis_agent(papers):
@@ -173,6 +211,7 @@ def analysis_agent(papers):
                 "short_summary": short_summary,
                 "why_it_matters": why,
                 "tags": tags,
+                "source_site": infer_source_site(p),
             }
         )
     return analyzed
@@ -216,28 +255,45 @@ tags: [sign-language, AI, ASL, research]
     body_lines = []
     body_lines.append(
         "This digest automatically gathers recent arXiv papers related to "
-        "sign language, sign language translation/recognition, and sign language & AI.\n"
+        "sign language, sign language translation/recognition, and sign language & AI. "
+        "Findings are grouped by likely source site below.\n"
     )
 
     if not analyzed_papers:
         body_lines.append("*No recent papers were found for this time window.*\n")
     else:
-        for i, p in enumerate(analyzed_papers, start=1):
-            pub_date = None
-            if isinstance(p["published"], datetime):
-                pub_date = p["published"].strftime("%Y-%m-%d")
-            else:
-                pub_date = str(p["published"])
+        body_lines.append(
+            "Below are the papers grouped by their likely source sites.\n"
+        )
+        grouped = {site: [] for site in SOURCE_SITES}
+        for p in analyzed_papers:
+            site = p.get("source_site", "arXiv") or "arXiv"
+            grouped.setdefault(site, []).append(p)
 
-            authors = ", ".join(p["authors"]) if p["authors"] else "Unknown"
+        for site in SOURCE_SITES:
+            papers_for_site = grouped.get(site, [])
+            body_lines.append(f"## {site}\n")
 
-            tag_str = ", ".join(p["tags"]) if p["tags"] else "sign-language-ai"
+            if not papers_for_site:
+                body_lines.append(
+                    "_No recent papers from this source in the selected window._\n"
+                )
+                continue
 
-            section = f"""## {i}. {p['title']}
+            for i, p in enumerate(papers_for_site, start=1):
+                if isinstance(p["published"], datetime):
+                    pub_date = p["published"].strftime("%Y-%m-%d")
+                else:
+                    pub_date = str(p["published"])
+
+                authors = ", ".join(p["authors"]) if p["authors"] else "Unknown"
+                tag_str = ", ".join(p["tags"]) if p["tags"] else "sign-language-ai"
+
+                section = f"""### {i}. {p['title']}
 
 - **Authors:** {authors}
 - **Published:** {pub_date}
-- **arXiv:** [{p['id']}]({p['url']})
+- **Link:** [{p['id']}]({p['url']})
 - **Tags:** {tag_str}
 
 **Summary**
@@ -251,7 +307,7 @@ tags: [sign-language, AI, ASL, research]
 ---
 
 """
-            body_lines.append(section)
+                body_lines.append(section)
 
     markdown = front_matter + "\n".join(body_lines)
     filename = f"{date_str}-{slug}.md"

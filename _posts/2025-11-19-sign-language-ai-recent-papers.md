@@ -1,18 +1,58 @@
 ---
 layout: post
 title: "Sign Language & AI – Recent Papers (November 19, 2025)"
-date: 2025-11-19 00:26:05 +0000
+date: 2025-11-19 02:58:16 +0000
 categories: [sign-language, ai]
 tags: [sign-language, AI, ASL, research]
 ---
 
-This digest automatically gathers recent arXiv papers related to sign language, sign language translation/recognition, and sign language & AI.
+This digest automatically gathers recent arXiv papers related to sign language, sign language translation/recognition, and sign language & AI. Findings are grouped by likely source site below.
 
-## 1. A Comparative Analysis of Recurrent and Attention Architectures for Isolated Sign Language Recognition
+Below are the papers grouped by their likely source sites.
+
+## arXiv
+
+### 1. Enhancing LLM-based Autonomous Driving with Modular Traffic Light and Sign Recognition
+
+- **Authors:** Fabian Schmidt, Noushiq Mohammed Kayilan Abdul Nazar, Markus Enzweiler, Abhinav Valada
+- **Published:** 2025-11-18
+- **Link:** [http://arxiv.org/abs/2511.14391v1](http://arxiv.org/abs/2511.14391v1)
+- **Tags:** recognition
+
+**Summary**
+
+Large Language Models (LLMs) are increasingly used for decision-making and planning in autonomous driving, showing promising reasoning capabilities and potential to generalize across diverse traffic situations. However, current LLM-based driving agents lack explicit mechanisms to enforce traffic rules and often struggle to reliably detect small, safety-critical objects such as traffic lights and signs. To address this limitation, we introduce TLS-Assist, a modular redundancy layer that augments…
+
+**Why it matters**
+
+This paper is relevant because it advances sign language recognition.
+
+---
+
+
+### 2. Mind the Gap: Evaluating LLM Understanding of Human-Taught Road Safety Principles
+
+- **Authors:** Chalamalasetti Kranti
+- **Published:** 2025-11-17
+- **Link:** [http://arxiv.org/abs/2511.13909v1](http://arxiv.org/abs/2511.13909v1)
+- **Tags:** sign-language-ai
+
+**Summary**
+
+Following road safety norms is non-negotiable not only for humans but also for the AI systems that govern autonomous vehicles. In this work, we evaluate how well multi-modal large language models (LLMs) understand road safety concepts, specifically through schematic and illustrative representations. We curate a pilot dataset of images depicting traffic signs and road-safety norms sourced from school text books and use it to evaluate models capabilities in a zero-shot setting. Our preliminary…
+
+**Why it matters**
+
+This paper explores methods that can be applied to sign language and AI.
+
+---
+
+
+### 3. A Comparative Analysis of Recurrent and Attention Architectures for Isolated Sign Language Recognition
 
 - **Authors:** Nigar Alishzade, Gulchin Abdullayeva
 - **Published:** 2025-11-17
-- **arXiv:** [http://arxiv.org/abs/2511.13126v1](http://arxiv.org/abs/2511.13126v1)
+- **Link:** [http://arxiv.org/abs/2511.13126v1](http://arxiv.org/abs/2511.13126v1)
 - **Tags:** ASL, neural-network, recognition, transformer
 
 **Summary**
@@ -26,11 +66,11 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-## 2. RoCoISLR: A Romanian Corpus for Isolated Sign Language Recognition
+### 4. RoCoISLR: A Romanian Corpus for Isolated Sign Language Recognition
 
 - **Authors:** Cătălin-Alexandru Rîpanu, Andrei-Theodor Hotnog, Giulia-Stefania Imbrea, Dumitru-Clementin Cercel
 - **Published:** 2025-11-16
-- **arXiv:** [http://arxiv.org/abs/2511.12767v1](http://arxiv.org/abs/2511.12767v1)
+- **Link:** [http://arxiv.org/abs/2511.12767v1](http://arxiv.org/abs/2511.12767v1)
 - **Tags:** ASL, pose-estimation, recognition, transformer
 
 **Summary**
@@ -44,11 +84,11 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-## 3. BdSL-SPOTER: A Transformer-Based Framework for Bengali Sign Language Recognition with Cultural Adaptation
+### 5. BdSL-SPOTER: A Transformer-Based Framework for Bengali Sign Language Recognition with Cultural Adaptation
 
 - **Authors:** Sayad Ibna Azad, Md. Atiqur Rahman
 - **Published:** 2025-11-15
-- **arXiv:** [http://arxiv.org/abs/2511.12103v1](http://arxiv.org/abs/2511.12103v1)
+- **Link:** [http://arxiv.org/abs/2511.12103v1](http://arxiv.org/abs/2511.12103v1)
 - **Tags:** pose-estimation, recognition, transformer
 
 **Summary**
@@ -62,11 +102,11 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-## 4. Large Sign Language Models: Toward 3D American Sign Language Translation
+### 6. Large Sign Language Models: Toward 3D American Sign Language Translation
 
 - **Authors:** Sen Zhang, Xiaoxiao He, Di Liu, Zhaoyang Xia, Mingyu Zhao, Chaowei Tan, Vivian Li, Bo Liu, Dimitris N. Metaxas, Mubbasir Kapadia
 - **Published:** 2025-11-11
-- **arXiv:** [http://arxiv.org/abs/2511.08535v1](http://arxiv.org/abs/2511.08535v1)
+- **Link:** [http://arxiv.org/abs/2511.08535v1](http://arxiv.org/abs/2511.08535v1)
 - **Tags:** ASL, recognition, translation
 
 **Summary**
@@ -80,11 +120,11 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-## 5. Introducing A Bangla Sentence - Gloss Pair Dataset for Bangla Sign Language Translation and Research
+### 7. Introducing A Bangla Sentence - Gloss Pair Dataset for Bangla Sign Language Translation and Research
 
 - **Authors:** Neelavro Saha, Rafi Shahriyar, Nafis Ashraf Roudra, Saadman Sakib, Annajiat Alim Rasel
 - **Published:** 2025-11-11
-- **arXiv:** [http://arxiv.org/abs/2511.08507v1](http://arxiv.org/abs/2511.08507v1)
+- **Link:** [http://arxiv.org/abs/2511.08507v1](http://arxiv.org/abs/2511.08507v1)
 - **Tags:** transformer, translation
 
 **Summary**
@@ -98,11 +138,11 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-## 6. Sign language recognition from skeletal data using graph and recurrent neural networks
+### 8. Sign language recognition from skeletal data using graph and recurrent neural networks
 
 - **Authors:** B. Mederos, J. Mejía, A. Medina-Reyes, Y. Espinosa-Almeyda, J. D. Díaz-Roman, I. Rodríguez-Mederos, M. Mejía-Carreon, F. Gonzalez-Lopez
 - **Published:** 2025-11-08
-- **arXiv:** [http://arxiv.org/abs/2511.05772v1](http://arxiv.org/abs/2511.05772v1)
+- **Link:** [http://arxiv.org/abs/2511.05772v1](http://arxiv.org/abs/2511.05772v1)
 - **Tags:** neural-network, pose-estimation, recognition
 
 **Summary**
@@ -116,11 +156,11 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-## 7. Smart-Hiring: An Explainable end-to-end Pipeline for CV Information Extraction and Job Matching
+### 9. Smart-Hiring: An Explainable end-to-end Pipeline for CV Information Extraction and Job Matching
 
 - **Authors:** Kenza Khelkhal, Dihia Lanasri
 - **Published:** 2025-11-04
-- **arXiv:** [http://arxiv.org/abs/2511.02537v1](http://arxiv.org/abs/2511.02537v1)
+- **Link:** [http://arxiv.org/abs/2511.02537v1](http://arxiv.org/abs/2511.02537v1)
 - **Tags:** pose-estimation, recognition
 
 **Summary**
@@ -134,29 +174,11 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-## 8. POSESTITCH-SLT: Linguistically Inspired Pose-Stitching for End-to-End Sign Language Translation
-
-- **Authors:** Abhinav Joshi, Vaibhav Sharma, Sanjeet Singh, Ashutosh Modi
-- **Published:** 2025-10-31
-- **arXiv:** [http://arxiv.org/abs/2511.00270v1](http://arxiv.org/abs/2511.00270v1)
-- **Tags:** neural-network, pose-estimation, transformer, translation
-
-**Summary**
-
-Sign language translation remains a challenging task due to the scarcity of large-scale, sentence-aligned datasets. Prior arts have focused on various feature extraction and architectural changes to support neural machine translation for sign languages. We propose POSESTITCH-SLT, a novel pre-training scheme that is inspired by linguistic-templates-based sentence generation technique. With translation comparison on two sign language datasets, How2Sign and iSign, we show that a simple…
-
-**Why it matters**
-
-This paper is relevant because it tackles sign language translation.
-
----
-
-
-## 9. GLYPH-SR: Can We Achieve Both High-Quality Image Super-Resolution and High-Fidelity Text Recovery via VLM-guided Latent Diffusion Model?
+### 10. GLYPH-SR: Can We Achieve Both High-Quality Image Super-Resolution and High-Fidelity Text Recovery via VLM-guided Latent Diffusion Model?
 
 - **Authors:** Mingyu Sung, Seungjae Ham, Kangwoo Kim, Yeokyoung Yoon, Sangseok Yun, Il-Min Kim, Jae-Mo Kang
 - **Published:** 2025-10-30
-- **arXiv:** [http://arxiv.org/abs/2510.26339v1](http://arxiv.org/abs/2510.26339v1)
+- **Link:** [http://arxiv.org/abs/2510.26339v1](http://arxiv.org/abs/2510.26339v1)
 - **Tags:** recognition
 
 **Summary**
@@ -170,11 +192,11 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-## 10. A Critical Study of Automatic Evaluation in Sign Language Translation
+### 11. A Critical Study of Automatic Evaluation in Sign Language Translation
 
 - **Authors:** Shakib Yazdani, Yasser Hamidullah, Cristina España-Bonet, Eleftherios Avramidis, Josef van Genabith
 - **Published:** 2025-10-29
-- **arXiv:** [http://arxiv.org/abs/2510.25434v2](http://arxiv.org/abs/2510.25434v2)
+- **Link:** [http://arxiv.org/abs/2510.25434v2](http://arxiv.org/abs/2510.25434v2)
 - **Tags:** translation
 
 **Summary**
@@ -188,11 +210,11 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-## 11. Seeing, Signing, and Saying: A Vision-Language Model-Assisted Pipeline for Sign Language Data Acquisition and Curation from Social Media
+### 12. Seeing, Signing, and Saying: A Vision-Language Model-Assisted Pipeline for Sign Language Data Acquisition and Curation from Social Media
 
 - **Authors:** Shakib Yazdani, Yasser Hamidullah, Cristina España-Bonet, Josef van Genabith
 - **Published:** 2025-10-29
-- **arXiv:** [http://arxiv.org/abs/2510.25413v1](http://arxiv.org/abs/2510.25413v1)
+- **Link:** [http://arxiv.org/abs/2510.25413v1](http://arxiv.org/abs/2510.25413v1)
 - **Tags:** ASL, pose-estimation, recognition, translation
 
 **Summary**
@@ -206,11 +228,11 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-## 12. Proper Body Landmark Subset Enables More Accurate and 5X Faster Recognition of Isolated Signs in LIBRAS
+### 13. Proper Body Landmark Subset Enables More Accurate and 5X Faster Recognition of Isolated Signs in LIBRAS
 
 - **Authors:** Daniele L. V. dos Santos, Thiago B. Pereira, Carlos Eduardo G. R. Alves, Richard J. M. G. Tello, Francisco de A. Boldt, Thiago M. Paixão
 - **Published:** 2025-10-28
-- **arXiv:** [http://arxiv.org/abs/2510.24887v1](http://arxiv.org/abs/2510.24887v1)
+- **Link:** [http://arxiv.org/abs/2510.24887v1](http://arxiv.org/abs/2510.24887v1)
 - **Tags:** pose-estimation, recognition
 
 **Summary**
@@ -224,11 +246,11 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-## 13. Reconnaissance Automatique des Langues des Signes : Une Approche Hybridée CNN-LSTM Basée sur Mediapipe
+### 14. Reconnaissance Automatique des Langues des Signes : Une Approche Hybridée CNN-LSTM Basée sur Mediapipe
 
 - **Authors:** Fraisse Sacré Takouchouang, Ho Tuong Vinh
 - **Published:** 2025-10-24
-- **arXiv:** [http://arxiv.org/abs/2510.22011v1](http://arxiv.org/abs/2510.22011v1)
+- **Link:** [http://arxiv.org/abs/2510.22011v1](http://arxiv.org/abs/2510.22011v1)
 - **Tags:** pose-estimation, recognition, translation
 
 **Summary**
@@ -242,29 +264,11 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-## 14. SIGN: Schema-Induced Games for Naming
-
-- **Authors:** Ryan Zhang, Herbert Woisetscläger
-- **Published:** 2025-10-22
-- **arXiv:** [http://arxiv.org/abs/2510.21855v1](http://arxiv.org/abs/2510.21855v1)
-- **Tags:** sign-language-ai
-
-**Summary**
-
-Real-world AI systems are tackling increasingly complex problems, often through interactions among large language model (LLM) agents. When these agents develop inconsistent conventions, coordination can break down. Applications such as collaborative coding and distributed planning therefore require reliable, consistent communication, and scalability is a central concern as systems grow. We introduce Schema-Induced Games for Naming (SIGN), a naming game that examines how lightweight structure…
-
-**Why it matters**
-
-This paper explores methods that can be applied to sign language and AI.
-
----
-
-
-## 15. Spatio-temporal Sign Language Representation and Translation
+### 15. Spatio-temporal Sign Language Representation and Translation
 
 - **Authors:** Yasser Hamidullah, Josef van Genabith, Cristina España-Bonet
 - **Published:** 2025-10-22
-- **arXiv:** [http://arxiv.org/abs/2510.19413v1](http://arxiv.org/abs/2510.19413v1)
+- **Link:** [http://arxiv.org/abs/2510.19413v1](http://arxiv.org/abs/2510.19413v1)
 - **Tags:** translation
 
 **Summary**
@@ -278,11 +282,11 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-## 16. SONAR-SLT: Multilingual Sign Language Translation via Language-Agnostic Sentence Embedding Supervision
+### 16. SONAR-SLT: Multilingual Sign Language Translation via Language-Agnostic Sentence Embedding Supervision
 
 - **Authors:** Yasser Hamidullah, Shakib Yazdani, Cennet Oguz, Josef van Genabith, Cristina España-Bonet
 - **Published:** 2025-10-22
-- **arXiv:** [http://arxiv.org/abs/2510.19398v1](http://arxiv.org/abs/2510.19398v1)
+- **Link:** [http://arxiv.org/abs/2510.19398v1](http://arxiv.org/abs/2510.19398v1)
 - **Tags:** pose-estimation, translation
 
 **Summary**
@@ -296,11 +300,11 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-## 17. Sign Language Translation with Sentence Embedding Supervision
+### 17. Sign Language Translation with Sentence Embedding Supervision
 
 - **Authors:** Yasser Hamidullah, Josef van Genabith, Cristina España-Bonet
 - **Published:** 2025-10-22
-- **arXiv:** [http://arxiv.org/abs/2510.19367v1](http://arxiv.org/abs/2510.19367v1)
+- **Link:** [http://arxiv.org/abs/2510.19367v1](http://arxiv.org/abs/2510.19367v1)
 - **Tags:** translation
 
 **Summary**
@@ -314,11 +318,11 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-## 18. Grounding or Guessing? Visual Signals for Detecting Hallucinations in Sign Language Translation
+### 18. Grounding or Guessing? Visual Signals for Detecting Hallucinations in Sign Language Translation
 
 - **Authors:** Yasser Hamidullah, Koel Dutta Chowdury, Yusser Al-Ghussin, Shakib Yazdani, Cennet Oguz, Josef van Genabith, Cristina España-Bonet
 - **Published:** 2025-10-21
-- **arXiv:** [http://arxiv.org/abs/2510.18439v1](http://arxiv.org/abs/2510.18439v1)
+- **Link:** [http://arxiv.org/abs/2510.18439v1](http://arxiv.org/abs/2510.18439v1)
 - **Tags:** pose-estimation, translation
 
 **Summary**
@@ -331,3 +335,79 @@ This paper is relevant because it tackles sign language translation.
 
 ---
 
+
+## NeurIPS
+
+_No recent papers from this source in the selected window._
+
+## ICML
+
+_No recent papers from this source in the selected window._
+
+## AAAI
+
+### 1. SIGN: Schema-Induced Games for Naming
+
+- **Authors:** Ryan Zhang, Herbert Woisetscläger
+- **Published:** 2025-10-22
+- **Link:** [http://arxiv.org/abs/2510.21855v1](http://arxiv.org/abs/2510.21855v1)
+- **Tags:** sign-language-ai
+
+**Summary**
+
+Real-world AI systems are tackling increasingly complex problems, often through interactions among large language model (LLM) agents. When these agents develop inconsistent conventions, coordination can break down. Applications such as collaborative coding and distributed planning therefore require reliable, consistent communication, and scalability is a central concern as systems grow. We introduce Schema-Induced Games for Naming (SIGN), a naming game that examines how lightweight structure…
+
+**Why it matters**
+
+This paper explores methods that can be applied to sign language and AI.
+
+---
+
+
+## IJCAI
+
+_No recent papers from this source in the selected window._
+
+## ACL
+
+_No recent papers from this source in the selected window._
+
+## NAACL
+
+_No recent papers from this source in the selected window._
+
+## EMNLP
+
+### 1. POSESTITCH-SLT: Linguistically Inspired Pose-Stitching for End-to-End Sign Language Translation
+
+- **Authors:** Abhinav Joshi, Vaibhav Sharma, Sanjeet Singh, Ashutosh Modi
+- **Published:** 2025-10-31
+- **Link:** [http://arxiv.org/abs/2511.00270v1](http://arxiv.org/abs/2511.00270v1)
+- **Tags:** neural-network, pose-estimation, transformer, translation
+
+**Summary**
+
+Sign language translation remains a challenging task due to the scarcity of large-scale, sentence-aligned datasets. Prior arts have focused on various feature extraction and architectural changes to support neural machine translation for sign languages. We propose POSESTITCH-SLT, a novel pre-training scheme that is inspired by linguistic-templates-based sentence generation technique. With translation comparison on two sign language datasets, How2Sign and iSign, we show that a simple…
+
+**Why it matters**
+
+This paper is relevant because it tackles sign language translation.
+
+---
+
+
+## COLING
+
+_No recent papers from this source in the selected window._
+
+## CVPR
+
+_No recent papers from this source in the selected window._
+
+## ICCV
+
+_No recent papers from this source in the selected window._
+
+## ECCV
+
+_No recent papers from this source in the selected window._
