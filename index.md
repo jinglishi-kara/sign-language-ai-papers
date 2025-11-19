@@ -27,11 +27,7 @@ title: "Sign Language & AI – Latest Papers"
 
 <div class="landing-hero">
   <p>
-    Welcome! This site auto-publishes the latest research on sign language translation,
-    recognition, production, gesture generation, and ASL-focused AI. Inspired by
-    the curation style of <a href="https://github.com/VIPL-SLP/awesome-sign-language-processing" target="_blank" rel="noopener">VIPL-SLP/awesome-sign-language-processing</a>,
-    every digest now ships with creative conference/task filters, snapshot tables,
-    and responsive cards so you can skim breakthroughs faster.
+    Welcome to <a href="https://www.kara.tech/">Kara AI</a>. We’re advancing sign-language accessibility with cutting-edge research, translation, recognition and generation technologies tailored for ASL and beyond. For inquiries, please contact the Kara AI team.
   </p>
 </div>
 
