@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sign Language & AI – Recent Papers (November 19, 2025)"
-date: 2025-11-19 19:38:30 +0000
+date: 2025-11-19 20:02:04 +0000
 categories: [sign-language, ai]
 tags: [sign-language, AI, ASL, research]
 ---
@@ -86,39 +86,64 @@ tags: [sign-language, AI, ASL, research]
   font-size: 0.92rem;
   line-height: 1.35rem;
 }
+.snapshot-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.snapshot-table th,
+.snapshot-table td {
+  border: 1px solid var(--card-border);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+}
+.snapshot-table thead {
+  background: var(--card-bg);
+}
 </style>
 
 This digest automatically gathers recent arXiv papers related to sign language translation/recognition and adjacent gesture research. The layout borrows inspiration from [VIPL-SLP/awesome-sign-language-processing](https://github.com/VIPL-SLP/awesome-sign-language-processing) so you can skim by task or venue.
 
-*Generated on November 19, 2025 at 19:38 UTC with 20 papers.*
+*Generated on November 19, 2025 at 20:02 UTC with 20 papers.*
 
 ### Source snapshot
-| Source | Papers |
-| --- | --- |
-| arXiv | 17 |
-| NeurIPS | 0 |
-| ICML | 0 |
-| ICLR | 1 |
-| AAAI | 1 |
-| IJCAI | 0 |
-| ACL | 0 |
-| NAACL | 0 |
-| EMNLP | 1 |
-| COLING | 0 |
-| CVPR | 0 |
-| ICCV | 0 |
-| ECCV | 0 |
+<table class="snapshot-table">
+  <thead>
+    <tr><th>Source</th><th>Papers</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>arXiv</td><td>17</td></tr>
+    <tr><td>NeurIPS</td><td>0</td></tr>
+    <tr><td>ICML</td><td>0</td></tr>
+    <tr><td>ICLR</td><td>1</td></tr>
+    <tr><td>AAAI</td><td>1</td></tr>
+    <tr><td>IJCAI</td><td>0</td></tr>
+    <tr><td>ACL</td><td>0</td></tr>
+    <tr><td>NAACL</td><td>0</td></tr>
+    <tr><td>EMNLP</td><td>1</td></tr>
+    <tr><td>COLING</td><td>0</td></tr>
+    <tr><td>CVPR</td><td>0</td></tr>
+    <tr><td>ICCV</td><td>0</td></tr>
+    <tr><td>ECCV</td><td>0</td></tr>
+  </tbody>
+</table>
 
 
 ### Task spotlight
-| Task | Papers |
-| --- | --- |
-| Sign Language Recognition | 11 |
-| Sign Language Translation | 7 |
-| Sign Language Production | 0 |
-| Other Sign Language Topic | 2 |
-| Co-speech Gesture Generation | 0 |
-| Gesture Recognition | 0 |
+<table class="snapshot-table">
+  <thead>
+    <tr><th>Task</th><th>Papers</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Sign Language Recognition</td><td>11</td></tr>
+    <tr><td>Sign Language Translation</td><td>7</td></tr>
+    <tr><td>Sign Language Production</td><td>0</td></tr>
+    <tr><td>Other Sign Language Topic</td><td>2</td></tr>
+    <tr><td>Co-speech Gesture Generation</td><td>0</td></tr>
+    <tr><td>Gesture Recognition</td><td>0</td></tr>
+  </tbody>
+</table>
 
 
 Use the filters below to mix-and-match conference venues and the task-driven taxonomy popularised by the awesome list. Hover over cards to explore summaries or click through to the original paper/code links.

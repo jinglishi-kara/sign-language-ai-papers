@@ -352,6 +352,21 @@ def build_post_body(analyzed_papers, now: datetime) -> str:
   font-size: 0.92rem;
   line-height: 1.35rem;
 }
+.snapshot-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.snapshot-table th,
+.snapshot-table td {
+  border: 1px solid var(--card-border);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+}
+.snapshot-table thead {
+  background: var(--card-bg);
+}
 </style>
 """
 
@@ -376,13 +391,33 @@ def build_post_body(analyzed_papers, now: datetime) -> str:
     source_counts = Counter([p["source_site"] for p in analyzed_papers])
     task_counts = Counter([p["task_category"] for p in analyzed_papers])
 
-    source_table = ["### Source snapshot\n", "| Source | Papers |\n| --- | --- |\n"]
+    source_table = [
+        "### Source snapshot\n",
+        '<table class="snapshot-table">\n',
+        "  <thead>\n",
+        "    <tr><th>Source</th><th>Papers</th></tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+    ]
     for site in SOURCE_SITES:
-        source_table.append(f"| {site} | {source_counts.get(site, 0)} |\n")
+        source_table.append(
+            f"    <tr><td>{site}</td><td>{source_counts.get(site, 0)}</td></tr>\n"
+        )
+    source_table.append("  </tbody>\n</table>\n")
 
-    task_table = ["\n### Task spotlight\n", "| Task | Papers |\n| --- | --- |\n"]
+    task_table = [
+        "\n### Task spotlight\n",
+        '<table class="snapshot-table">\n',
+        "  <thead>\n",
+        "    <tr><th>Task</th><th>Papers</th></tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+    ]
     for task in TASK_CATEGORIES:
-        task_table.append(f"| {task} | {task_counts.get(task, 0)} |\n")
+        task_table.append(
+            f"    <tr><td>{task}</td><td>{task_counts.get(task, 0)}</td></tr>\n"
+        )
+    task_table.append("  </tbody>\n</table>\n")
 
     filter_intro = (
         "\nUse the filters below to mix-and-match conference venues and the task-driven "
