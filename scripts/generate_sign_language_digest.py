@@ -6,13 +6,12 @@ Run from the repo root:
     python scripts/generate_sign_language_digest.py
 """
 
-import os
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from textwrap import shorten
 
 import arxiv
-from dateutil import parser as date_parser
 
 # Canonical ordering for source-site groupings in the output.
 SOURCE_SITES = [
@@ -29,6 +28,26 @@ SOURCE_SITES = [
     "CVPR",
     "ICCV",
     "ECCV",
+]
+
+# Simple slug helper for HTML data attributes.
+def slugify(value: str) -> str:
+    return (
+        value.lower()
+        .replace("&", "and")
+        .replace("/", "-")
+        .replace(" ", "-")
+        .replace(",", "")
+    )
+
+# Task groupings inspired by VIPL-SLP/awesome-sign-language-processing.
+TASK_CATEGORIES = [
+    "Sign Language Recognition",
+    "Sign Language Translation",
+    "Sign Language Production",
+    "Other Sign Language Topic",
+    "Co-speech Gesture Generation",
+    "Gesture Recognition",
 ]
 
 # -------- Agent 0: Topic Agent -------- #
@@ -162,6 +181,37 @@ def infer_source_site(paper):
     return "arXiv"
 
 
+def infer_task_category(paper):
+    """
+    Roughly classify a paper into a task bucket inspired by
+    VIPL-SLP/awesome-sign-language-processing.
+    """
+    text = " ".join(
+        [
+            paper.get("title", ""),
+            paper.get("summary", ""),
+            " ".join(paper.get("tags", [])),
+        ]
+    ).lower()
+
+    mapping = [
+        ("Sign Language Recognition", ["recognition", "islr", "cslr", "classifier"]),
+        ("Sign Language Translation", ["translation", "translate", "slt"]),
+        (
+            "Sign Language Production",
+            ["production", "avatar", "generation", "synthesis", "signer"],
+        ),
+        ("Co-speech Gesture Generation", ["co-speech", "gesture generation"]),
+        ("Gesture Recognition", ["gesture recognition", "gesture dataset"]),
+    ]
+
+    for category, keywords in mapping:
+        for keyword in keywords:
+            if keyword in text:
+                return category
+    return "Other Sign Language Topic"
+
+
 def analysis_agent(papers):
     """
     Enrich each paper with:
@@ -206,16 +256,255 @@ def analysis_agent(papers):
         else:
             why = "This paper explores methods that can be applied to sign language and AI."
 
-        analyzed.append(
-            {
-                **p,
-                "short_summary": short_summary,
-                "why_it_matters": why,
-                "tags": tags,
-                "source_site": infer_source_site(p),
-            }
-        )
+        enriched = {
+            **p,
+            "short_summary": short_summary,
+            "why_it_matters": why,
+            "tags": tags,
+        }
+        enriched["source_site"] = infer_source_site(enriched)
+        enriched["task_category"] = infer_task_category(enriched)
+        analyzed.append(enriched)
     return analyzed
+
+
+def build_post_body(analyzed_papers, now: datetime) -> str:
+    """
+    Assemble the creative Markdown/HTML body for the digest.
+    """
+    style_block = """
+<style>
+:root {
+  --card-border: #e0e4ec;
+  --card-bg: #f9fafc;
+  --chip-bg: #eef2ff;
+  --chip-text: #162447;
+  --accent: #3d5afe;
+}
+.paper-filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: #fff;
+}
+.filter-group {
+  flex: 1 1 240px;
+}
+.filter-group strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.filter-btn {
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  margin: 0.25rem 0.35rem 0 0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.filter-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.paper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.paper-card {
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 1.1rem;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.paper-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+}
+.chip {
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  border-radius: 999px;
+  padding: 0.1rem 0.65rem;
+}
+.paper-links a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+.paper-summary {
+  font-size: 0.92rem;
+  line-height: 1.35rem;
+}
+</style>
+"""
+
+    intro = (
+        "This digest automatically gathers recent arXiv papers related to "
+        "sign language translation/recognition and adjacent gesture research. "
+        "The layout borrows inspiration from "
+        "[VIPL-SLP/awesome-sign-language-processing]"
+        "(https://github.com/VIPL-SLP/awesome-sign-language-processing) "
+        "so you can skim by task or venue.\n"
+    )
+
+    if not analyzed_papers:
+        return style_block + intro + "*No recent papers were found for this time window.*\n"
+
+    total = len(analyzed_papers)
+    timestamp = (
+        f"*Generated on {now.strftime('%B %d, %Y at %H:%M %Z')} "
+        f"with {total} papers.*\n"
+    )
+
+    source_counts = Counter([p["source_site"] for p in analyzed_papers])
+    task_counts = Counter([p["task_category"] for p in analyzed_papers])
+
+    source_table = ["### Source snapshot\n", "| Source | Papers |\n| --- | --- |\n"]
+    for site in SOURCE_SITES:
+        source_table.append(f"| {site} | {source_counts.get(site, 0)} |\n")
+
+    task_table = ["\n### Task spotlight\n", "| Task | Papers |\n| --- | --- |\n"]
+    for task in TASK_CATEGORIES:
+        task_table.append(f"| {task} | {task_counts.get(task, 0)} |\n")
+
+    filter_intro = (
+        "\nUse the filters below to mix-and-match conference venues and the task-driven "
+        "taxonomy popularised by the awesome list. Hover over cards to explore summaries "
+        "or click through to the original paper/code links.\n"
+    )
+
+    def build_filter_group(group_label, group_key, options, counts):
+        buttons = [
+            f'<button class="filter-btn active" data-filter-group="{group_key}" '
+            'data-filter-value="all">All</button>'
+        ]
+        for option in options:
+            count = counts.get(option, 0)
+            slug = slugify(option)
+            disabled_attr = " disabled aria-disabled='true'" if count == 0 else ""
+            buttons.append(
+                f'<button class="filter-btn" data-filter-group="{group_key}" '
+                f'data-filter-value="{slug}"{disabled_attr}>{option} ({count})</button>'
+            )
+        return (
+            f'<div class="filter-group" data-group="{group_key}">'
+            f"<strong>{group_label}</strong>"
+            + "".join(buttons)
+            + "</div>"
+        )
+
+    task_filter = build_filter_group(
+        "Task focus",
+        "task",
+        TASK_CATEGORIES,
+        task_counts,
+    )
+    source_filter = build_filter_group(
+        "Conference & source",
+        "source",
+        SOURCE_SITES,
+        source_counts,
+    )
+    filter_panel = f'<div class="paper-filter-panel">{task_filter}{source_filter}</div>'
+
+    cards = ['<div class="paper-grid" id="paper-grid">']
+    for p in analyzed_papers:
+        site = p.get("source_site", "arXiv")
+        task = p.get("task_category", "Other Sign Language Topic")
+        site_slug = slugify(site)
+        task_slug = slugify(task)
+        authors = ", ".join(p["authors"]) if p["authors"] else "Unknown"
+        if isinstance(p["published"], datetime):
+            pub_date = p["published"].strftime("%Y-%m-%d")
+        else:
+            pub_date = str(p["published"])
+        tag_str = ", ".join(p["tags"]) if p["tags"] else "sign-language-ai"
+
+        card = f"""
+<article class="paper-card" data-source="{site_slug}" data-task="{task_slug}">
+  <div class="paper-chip-row">
+    <span class="chip">{site}</span>
+    <span class="chip">{task}</span>
+  </div>
+  <h3>{p['title']}</h3>
+  <p class="paper-authors"><strong>Authors:</strong> {authors}</p>
+  <p class="paper-published"><strong>Published:</strong> {pub_date}</p>
+  <p class="paper-tags"><strong>Tags:</strong> {tag_str}</p>
+  <p class="paper-links"><a href="{p['url']}" target="_blank" rel="noopener">Read the paper</a></p>
+  <div class="paper-summary">
+    <strong>Summary:</strong> {p['short_summary']}
+  </div>
+  <div class="paper-summary">
+    <strong>Why it matters:</strong> {p['why_it_matters']}
+  </div>
+</article>
+"""
+        cards.append(card)
+
+    cards.append("</div>")
+
+    script_block = """
+<script>
+(function() {
+  const grid = document.getElementById('paper-grid');
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.paper-card'));
+  const filterState = { task: 'all', source: 'all' };
+
+  function applyFilters() {
+    cards.forEach(card => {
+      const taskMatch = filterState.task === 'all' || card.dataset.task === filterState.task;
+      const sourceMatch = filterState.source === 'all' || card.dataset.source === filterState.source;
+      card.style.display = taskMatch && sourceMatch ? 'flex' : 'none';
+    });
+  }
+
+  document.querySelectorAll('.filter-group').forEach(group => {
+    const groupKey = group.getAttribute('data-group');
+    const buttons = Array.from(group.querySelectorAll('.filter-btn'));
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterState[groupKey] = btn.getAttribute('data-filter-value');
+        applyFilters();
+      });
+    });
+  });
+})();
+</script>
+"""
+
+    parts = [
+        style_block,
+        intro,
+        timestamp,
+        "".join(source_table),
+        "".join(task_table),
+        filter_intro,
+        filter_panel,
+        "".join(cards),
+        script_block,
+    ]
+    return "\n".join(parts)
 
 
 # -------- Agent 3: Editor Agent (Markdown / Jekyll Post) -------- #
@@ -253,64 +542,8 @@ tags: [sign-language, AI, ASL, research]
 
 """
 
-    body_lines = []
-    body_lines.append(
-        "This digest automatically gathers recent arXiv papers related to "
-        "sign language, sign language translation/recognition, and sign language & AI. "
-        "Findings are grouped by likely source site below.\n"
-    )
-
-    if not analyzed_papers:
-        body_lines.append("*No recent papers were found for this time window.*\n")
-    else:
-        body_lines.append(
-            "Below are the papers grouped by their likely source sites.\n"
-        )
-        grouped = {site: [] for site in SOURCE_SITES}
-        for p in analyzed_papers:
-            site = p.get("source_site", "arXiv") or "arXiv"
-            grouped.setdefault(site, []).append(p)
-
-        for site in SOURCE_SITES:
-            papers_for_site = grouped.get(site, [])
-            body_lines.append(f"## {site}\n")
-
-            if not papers_for_site:
-                body_lines.append(
-                    "_No recent papers from this source in the selected window._\n"
-                )
-                continue
-
-            for i, p in enumerate(papers_for_site, start=1):
-                if isinstance(p["published"], datetime):
-                    pub_date = p["published"].strftime("%Y-%m-%d")
-                else:
-                    pub_date = str(p["published"])
-
-                authors = ", ".join(p["authors"]) if p["authors"] else "Unknown"
-                tag_str = ", ".join(p["tags"]) if p["tags"] else "sign-language-ai"
-
-                section = f"""### {i}. {p['title']}
-
-- **Authors:** {authors}
-- **Published:** {pub_date}
-- **Link:** [{p['id']}]({p['url']})
-- **Tags:** {tag_str}
-
-**Summary**
-
-{p['short_summary']}
-
-**Why it matters**
-
-{p['why_it_matters']}
-
----
-
-"""
-                body_lines.append(section)
-
-    markdown = front_matter + "\n".join(body_lines)
+    body = build_post_body(analyzed_papers, now)
+    markdown = front_matter + body
     filename = f"{date_str}-{slug}.md"
     return filename, markdown
 
