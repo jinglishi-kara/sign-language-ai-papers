@@ -19,6 +19,7 @@ SOURCE_SITES = [
     "arXiv",
     "NeurIPS",
     "ICML",
+    "ICLR",
     "AAAI",
     "IJCAI",
     "ACL",

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sign Language & AI – Recent Papers (November 19, 2025)"
-date: 2025-11-19 02:58:16 +0000
+date: 2025-11-19 03:18:52 +0000
 categories: [sign-language, ai]
 tags: [sign-language, AI, ASL, research]
 ---
@@ -174,25 +174,7 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-### 10. GLYPH-SR: Can We Achieve Both High-Quality Image Super-Resolution and High-Fidelity Text Recovery via VLM-guided Latent Diffusion Model?
-
-- **Authors:** Mingyu Sung, Seungjae Ham, Kangwoo Kim, Yeokyoung Yoon, Sangseok Yun, Il-Min Kim, Jae-Mo Kang
-- **Published:** 2025-10-30
-- **Link:** [http://arxiv.org/abs/2510.26339v1](http://arxiv.org/abs/2510.26339v1)
-- **Tags:** recognition
-
-**Summary**
-
-Image super-resolution(SR) is fundamental to many vision system-from surveillance and autonomy to document analysis and retail analytics-because recovering high-frequency details, especially scene-text, enables reliable downstream perception. Scene-text, i.e., text embedded in natural images such as signs, product labels, and storefronts, often carries the most actionable information; when characters are blurred or hallucinated, optical character recognition(OCR) and subsequent decisions fail…
-
-**Why it matters**
-
-This paper is relevant because it advances sign language recognition.
-
----
-
-
-### 11. A Critical Study of Automatic Evaluation in Sign Language Translation
+### 10. A Critical Study of Automatic Evaluation in Sign Language Translation
 
 - **Authors:** Shakib Yazdani, Yasser Hamidullah, Cristina España-Bonet, Eleftherios Avramidis, Josef van Genabith
 - **Published:** 2025-10-29
@@ -210,7 +192,7 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-### 12. Seeing, Signing, and Saying: A Vision-Language Model-Assisted Pipeline for Sign Language Data Acquisition and Curation from Social Media
+### 11. Seeing, Signing, and Saying: A Vision-Language Model-Assisted Pipeline for Sign Language Data Acquisition and Curation from Social Media
 
 - **Authors:** Shakib Yazdani, Yasser Hamidullah, Cristina España-Bonet, Josef van Genabith
 - **Published:** 2025-10-29
@@ -228,7 +210,7 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-### 13. Proper Body Landmark Subset Enables More Accurate and 5X Faster Recognition of Isolated Signs in LIBRAS
+### 12. Proper Body Landmark Subset Enables More Accurate and 5X Faster Recognition of Isolated Signs in LIBRAS
 
 - **Authors:** Daniele L. V. dos Santos, Thiago B. Pereira, Carlos Eduardo G. R. Alves, Richard J. M. G. Tello, Francisco de A. Boldt, Thiago M. Paixão
 - **Published:** 2025-10-28
@@ -246,7 +228,7 @@ This paper is relevant because it advances sign language recognition.
 ---
 
 
-### 14. Reconnaissance Automatique des Langues des Signes : Une Approche Hybridée CNN-LSTM Basée sur Mediapipe
+### 13. Reconnaissance Automatique des Langues des Signes : Une Approche Hybridée CNN-LSTM Basée sur Mediapipe
 
 - **Authors:** Fraisse Sacré Takouchouang, Ho Tuong Vinh
 - **Published:** 2025-10-24
@@ -264,7 +246,7 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-### 15. Spatio-temporal Sign Language Representation and Translation
+### 14. Spatio-temporal Sign Language Representation and Translation
 
 - **Authors:** Yasser Hamidullah, Josef van Genabith, Cristina España-Bonet
 - **Published:** 2025-10-22
@@ -282,7 +264,7 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-### 16. SONAR-SLT: Multilingual Sign Language Translation via Language-Agnostic Sentence Embedding Supervision
+### 15. SONAR-SLT: Multilingual Sign Language Translation via Language-Agnostic Sentence Embedding Supervision
 
 - **Authors:** Yasser Hamidullah, Shakib Yazdani, Cennet Oguz, Josef van Genabith, Cristina España-Bonet
 - **Published:** 2025-10-22
@@ -300,7 +282,7 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-### 17. Sign Language Translation with Sentence Embedding Supervision
+### 16. Sign Language Translation with Sentence Embedding Supervision
 
 - **Authors:** Yasser Hamidullah, Josef van Genabith, Cristina España-Bonet
 - **Published:** 2025-10-22
@@ -318,7 +300,7 @@ This paper is relevant because it tackles sign language translation.
 ---
 
 
-### 18. Grounding or Guessing? Visual Signals for Detecting Hallucinations in Sign Language Translation
+### 17. Grounding or Guessing? Visual Signals for Detecting Hallucinations in Sign Language Translation
 
 - **Authors:** Yasser Hamidullah, Koel Dutta Chowdury, Yusser Al-Ghussin, Shakib Yazdani, Cennet Oguz, Josef van Genabith, Cristina España-Bonet
 - **Published:** 2025-10-21
@@ -343,6 +325,26 @@ _No recent papers from this source in the selected window._
 ## ICML
 
 _No recent papers from this source in the selected window._
+
+## ICLR
+
+### 1. GLYPH-SR: Can We Achieve Both High-Quality Image Super-Resolution and High-Fidelity Text Recovery via VLM-guided Latent Diffusion Model?
+
+- **Authors:** Mingyu Sung, Seungjae Ham, Kangwoo Kim, Yeokyoung Yoon, Sangseok Yun, Il-Min Kim, Jae-Mo Kang
+- **Published:** 2025-10-30
+- **Link:** [http://arxiv.org/abs/2510.26339v1](http://arxiv.org/abs/2510.26339v1)
+- **Tags:** recognition
+
+**Summary**
+
+Image super-resolution(SR) is fundamental to many vision system-from surveillance and autonomy to document analysis and retail analytics-because recovering high-frequency details, especially scene-text, enables reliable downstream perception. Scene-text, i.e., text embedded in natural images such as signs, product labels, and storefronts, often carries the most actionable information; when characters are blurred or hallucinated, optical character recognition(OCR) and subsequent decisions fail…
+
+**Why it matters**
+
+This paper is relevant because it advances sign language recognition.
+
+---
+
 
 ## AAAI
 
