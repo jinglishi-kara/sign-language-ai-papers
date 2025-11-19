@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sign Language & AI – Recent Papers (November 19, 2025)"
-date: 2025-11-19 20:25:04 +0000
+date: 2025-11-19 20:33:33 +0000
 categories: [sign-language, ai]
 tags: [sign-language, AI, ASL, research]
 ---
@@ -103,9 +103,9 @@ tags: [sign-language, AI, ASL, research]
 }
 </style>
 
-This digest automatically gathers recent arXiv papers related to sign language translation/recognition and adjacent gesture research. The layout borrows inspiration from [VIPL-SLP/awesome-sign-language-processing](https://github.com/VIPL-SLP/awesome-sign-language-processing) so you can skim by task or venue.
+This digest compiles recent arXiv publications on sign-language translation, recognition, and related gesture research. The content is structured to make it easy to browse by task or venue.
 
-*Generated on November 19, 2025 at 20:25 UTC with 20 papers.*
+*Generated on November 19, 2025 at 20:33 UTC with 20 papers.*
 
 ### Source snapshot
 <table class="snapshot-table">

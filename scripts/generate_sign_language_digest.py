@@ -30,6 +30,7 @@ SOURCE_SITES = [
     "ECCV",
 ]
 
+
 # Simple slug helper for HTML data attributes.
 def slugify(value: str) -> str:
     return (
@@ -39,6 +40,7 @@ def slugify(value: str) -> str:
         .replace(" ", "-")
         .replace(",", "")
     )
+
 
 # Task groupings inspired by VIPL-SLP/awesome-sign-language-processing.
 TASK_CATEGORIES = [
@@ -370,17 +372,14 @@ def build_post_body(analyzed_papers, now: datetime) -> str:
 </style>
 """
 
-    intro = (
-        "This digest automatically gathers recent arXiv papers related to "
-        "sign language translation/recognition and adjacent gesture research. "
-        "The layout borrows inspiration from "
-        "[VIPL-SLP/awesome-sign-language-processing]"
-        "(https://github.com/VIPL-SLP/awesome-sign-language-processing) "
-        "so you can skim by task or venue.\n"
-    )
+    intro = "This digest compiles recent arXiv publications on sign-language translation, recognition, and related gesture research. The content is structured to make it easy to browse by task or venue.\n"
 
     if not analyzed_papers:
-        return style_block + intro + "*No recent papers were found for this time window.*\n"
+        return (
+            style_block
+            + intro
+            + "*No recent papers were found for this time window.*\n"
+        )
 
     total = len(analyzed_papers)
     timestamp = (
@@ -440,9 +439,7 @@ def build_post_body(analyzed_papers, now: datetime) -> str:
             )
         return (
             f'<div class="filter-group" data-group="{group_key}">'
-            f"<strong>{group_label}</strong>"
-            + "".join(buttons)
-            + "</div>"
+            f"<strong>{group_label}</strong>" + "".join(buttons) + "</div>"
         )
 
     task_filter = build_filter_group(
