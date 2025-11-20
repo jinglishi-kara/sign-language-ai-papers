@@ -5,6 +5,9 @@ on:
     - cron: "0 5 * * *"  # once a day, 05:00 UTC
   workflow_dispatch:      # allow manual runs
 
+permissions:
+  contents: write  # allow pushing generated posts
+
 jobs:
   build:
     runs-on: ubuntu-latest

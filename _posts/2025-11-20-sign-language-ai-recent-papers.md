@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sign Language & AI – Recent Papers (November 20, 2025)"
-date: 2025-11-20 02:58:27 +0000
+date: 2025-11-20 19:33:30 +0000
 categories: [sign-language, ai]
 tags: [sign-language, AI, ASL, research]
 ---
@@ -105,7 +105,7 @@ tags: [sign-language, AI, ASL, research]
 
 This digest compiles recent arXiv publications on sign-language translation, recognition, and related gesture research. The content is structured to make it easy to browse by task or venue.
 
-*Generated on November 20, 2025 at 02:58 UTC with 20 papers.*
+*Generated on November 20, 2025 at 19:33 UTC with 19 papers.*
 
 ### Source snapshot
 <table class="snapshot-table">
@@ -113,7 +113,7 @@ This digest compiles recent arXiv publications on sign-language translation, rec
     <tr><th>Source</th><th>Papers</th></tr>
   </thead>
   <tbody>
-    <tr><td>arXiv</td><td>17</td></tr>
+    <tr><td>arXiv</td><td>16</td></tr>
     <tr><td>NeurIPS</td><td>0</td></tr>
     <tr><td>ICML</td><td>0</td></tr>
     <tr><td>ICLR</td><td>1</td></tr>
@@ -137,7 +137,7 @@ This digest compiles recent arXiv publications on sign-language translation, rec
   </thead>
   <tbody>
     <tr><td>Sign Language Recognition</td><td>11</td></tr>
-    <tr><td>Sign Language Translation</td><td>7</td></tr>
+    <tr><td>Sign Language Translation</td><td>6</td></tr>
     <tr><td>Sign Language Production</td><td>0</td></tr>
     <tr><td>Other Sign Language Topic</td><td>2</td></tr>
     <tr><td>Co-speech Gesture Generation</td><td>0</td></tr>
@@ -148,7 +148,7 @@ This digest compiles recent arXiv publications on sign-language translation, rec
 
 Use the filters below to mix-and-match conference venues and the task-driven taxonomy popularised by the awesome list. Hover over cards to explore summaries or click through to the original paper/code links.
 
-<div class="paper-filter-panel"><div class="filter-group" data-group="task"><strong>Task focus</strong><button class="filter-btn active" data-filter-group="task" data-filter-value="all">All</button><button class="filter-btn" data-filter-group="task" data-filter-value="sign-language-recognition">Sign Language Recognition (11)</button><button class="filter-btn" data-filter-group="task" data-filter-value="sign-language-translation">Sign Language Translation (7)</button><button class="filter-btn" data-filter-group="task" data-filter-value="sign-language-production" disabled aria-disabled='true'>Sign Language Production (0)</button><button class="filter-btn" data-filter-group="task" data-filter-value="other-sign-language-topic">Other Sign Language Topic (2)</button><button class="filter-btn" data-filter-group="task" data-filter-value="co-speech-gesture-generation" disabled aria-disabled='true'>Co-speech Gesture Generation (0)</button><button class="filter-btn" data-filter-group="task" data-filter-value="gesture-recognition" disabled aria-disabled='true'>Gesture Recognition (0)</button></div><div class="filter-group" data-group="source"><strong>Conference & source</strong><button class="filter-btn active" data-filter-group="source" data-filter-value="all">All</button><button class="filter-btn" data-filter-group="source" data-filter-value="arxiv">arXiv (17)</button><button class="filter-btn" data-filter-group="source" data-filter-value="neurips" disabled aria-disabled='true'>NeurIPS (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="icml" disabled aria-disabled='true'>ICML (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="iclr">ICLR (1)</button><button class="filter-btn" data-filter-group="source" data-filter-value="aaai">AAAI (1)</button><button class="filter-btn" data-filter-group="source" data-filter-value="ijcai" disabled aria-disabled='true'>IJCAI (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="acl" disabled aria-disabled='true'>ACL (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="naacl" disabled aria-disabled='true'>NAACL (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="emnlp">EMNLP (1)</button><button class="filter-btn" data-filter-group="source" data-filter-value="coling" disabled aria-disabled='true'>COLING (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="cvpr" disabled aria-disabled='true'>CVPR (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="iccv" disabled aria-disabled='true'>ICCV (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="eccv" disabled aria-disabled='true'>ECCV (0)</button></div></div>
+<div class="paper-filter-panel"><div class="filter-group" data-group="task"><strong>Task focus</strong><button class="filter-btn active" data-filter-group="task" data-filter-value="all">All</button><button class="filter-btn" data-filter-group="task" data-filter-value="sign-language-recognition">Sign Language Recognition (11)</button><button class="filter-btn" data-filter-group="task" data-filter-value="sign-language-translation">Sign Language Translation (6)</button><button class="filter-btn" data-filter-group="task" data-filter-value="sign-language-production" disabled aria-disabled='true'>Sign Language Production (0)</button><button class="filter-btn" data-filter-group="task" data-filter-value="other-sign-language-topic">Other Sign Language Topic (2)</button><button class="filter-btn" data-filter-group="task" data-filter-value="co-speech-gesture-generation" disabled aria-disabled='true'>Co-speech Gesture Generation (0)</button><button class="filter-btn" data-filter-group="task" data-filter-value="gesture-recognition" disabled aria-disabled='true'>Gesture Recognition (0)</button></div><div class="filter-group" data-group="source"><strong>Conference & source</strong><button class="filter-btn active" data-filter-group="source" data-filter-value="all">All</button><button class="filter-btn" data-filter-group="source" data-filter-value="arxiv">arXiv (16)</button><button class="filter-btn" data-filter-group="source" data-filter-value="neurips" disabled aria-disabled='true'>NeurIPS (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="icml" disabled aria-disabled='true'>ICML (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="iclr">ICLR (1)</button><button class="filter-btn" data-filter-group="source" data-filter-value="aaai">AAAI (1)</button><button class="filter-btn" data-filter-group="source" data-filter-value="ijcai" disabled aria-disabled='true'>IJCAI (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="acl" disabled aria-disabled='true'>ACL (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="naacl" disabled aria-disabled='true'>NAACL (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="emnlp">EMNLP (1)</button><button class="filter-btn" data-filter-group="source" data-filter-value="coling" disabled aria-disabled='true'>COLING (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="cvpr" disabled aria-disabled='true'>CVPR (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="iccv" disabled aria-disabled='true'>ICCV (0)</button><button class="filter-btn" data-filter-group="source" data-filter-value="eccv" disabled aria-disabled='true'>ECCV (0)</button></div></div>
 <div class="paper-grid" id="paper-grid">
 <article class="paper-card" data-source="arxiv" data-task="sign-language-recognition">
   <div class="paper-chip-row">
@@ -486,24 +486,6 @@ Use the filters below to mix-and-match conference venues and the task-driven tax
   <p class="paper-links"><a href="http://arxiv.org/abs/2510.19367v1" target="_blank" rel="noopener">Read the paper</a></p>
   <div class="paper-summary">
     <strong>Summary:</strong> State-of-the-art sign language translation (SLT) systems facilitate the learning process through gloss annotations, either in an end2end manner or by involving an intermediate step. Unfortunately, gloss labelled sign language data is usually not available at scale and, when available, gloss annotations widely differ from dataset to dataset. We present a novel approach using sentence embeddings of the target sentences at training time that take the role of glosses. The new kind of supervision…
-  </div>
-  <div class="paper-summary">
-    <strong>Why it matters:</strong> This paper is relevant because it tackles sign language translation.
-  </div>
-</article>
-
-<article class="paper-card" data-source="arxiv" data-task="sign-language-translation">
-  <div class="paper-chip-row">
-    <span class="chip">arXiv</span>
-    <span class="chip">Sign Language Translation</span>
-  </div>
-  <h3>Grounding or Guessing? Visual Signals for Detecting Hallucinations in Sign Language Translation</h3>
-  <p class="paper-authors"><strong>Authors:</strong> Yasser Hamidullah, Koel Dutta Chowdury, Yusser Al-Ghussin, Shakib Yazdani, Cennet Oguz, Josef van Genabith, Cristina España-Bonet</p>
-  <p class="paper-published"><strong>Published:</strong> 2025-10-21</p>
-  <p class="paper-tags"><strong>Tags:</strong> pose-estimation, translation</p>
-  <p class="paper-links"><a href="http://arxiv.org/abs/2510.18439v1" target="_blank" rel="noopener">Read the paper</a></p>
-  <div class="paper-summary">
-    <strong>Summary:</strong> Hallucination, where models generate fluent text unsupported by visual evidence, remains a major flaw in vision-language models and is particularly critical in sign language translation (SLT). In SLT, meaning depends on precise grounding in video, and gloss-free models are especially vulnerable because they map continuous signer movements directly into natural language without intermediate gloss supervision that serves as alignment. We argue that hallucinations arise when models rely on…
   </div>
   <div class="paper-summary">
     <strong>Why it matters:</strong> This paper is relevant because it tackles sign language translation.
