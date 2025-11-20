@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sign Language & AI – Recent Papers (November 20, 2025)"
-date: 2025-11-20 02:54:26 +0000
+date: 2025-11-20 02:58:27 +0000
 categories: [sign-language, ai]
 tags: [sign-language, AI, ASL, research]
 ---
@@ -105,7 +105,7 @@ tags: [sign-language, AI, ASL, research]
 
 This digest compiles recent arXiv publications on sign-language translation, recognition, and related gesture research. The content is structured to make it easy to browse by task or venue.
 
-*Generated on November 20, 2025 at 02:54 UTC with 20 papers.*
+*Generated on November 20, 2025 at 02:58 UTC with 20 papers.*
 
 ### Source snapshot
 <table class="snapshot-table">
