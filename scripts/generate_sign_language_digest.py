@@ -8,6 +8,7 @@ Run from the repo root:
 
 from collections import Counter
 from datetime import datetime, timezone
+import json
 from pathlib import Path
 from textwrap import shorten
 
@@ -551,6 +552,44 @@ def format_date_for_front_matter(dt: datetime) -> str:
     return dt_utc.strftime("%Y-%m-%d %H:%M:%S %z")
 
 
+def serialize_paper_catalog(analyzed_papers):
+    """
+    Expose a structured paper catalog in front matter so the homepage can
+    render a searchable dashboard without scraping post HTML.
+    """
+    catalog = []
+    for paper in analyzed_papers:
+        published = paper.get("published")
+        if isinstance(published, datetime):
+            published_str = published.strftime("%Y-%m-%d")
+        else:
+            published_str = str(published)
+
+        catalog.append(
+            {
+                "title": paper.get("title", ""),
+                "authors": paper.get("authors", []),
+                "published": published_str,
+                "tags": paper.get("tags", []),
+                "url": paper.get("url", ""),
+                "source_site": paper.get("source_site", "arXiv"),
+                "task_category": paper.get(
+                    "task_category", "Other Sign Language Topic"
+                ),
+                "short_summary": paper.get("short_summary", ""),
+                "why_it_matters": paper.get("why_it_matters", ""),
+            }
+        )
+    return json.dumps(catalog, ensure_ascii=False, indent=2)
+
+
+def indent_block(text: str, prefix: str = "  ") -> str:
+    """
+    Indent a multiline block for YAML front matter.
+    """
+    return "\n".join(f"{prefix}{line}" if line else prefix for line in text.splitlines())
+
+
 def editor_agent(analyzed_papers):
     """
     Build a single Markdown blog post containing all the papers.
@@ -562,6 +601,7 @@ def editor_agent(analyzed_papers):
 
     title = f"Sign Language & AI – Recent Papers ({pretty_date})"
     slug = "sign-language-ai-recent-papers"
+    paper_catalog_json = serialize_paper_catalog(analyzed_papers)
 
     # YAML front matter for Jekyll
     front_matter = f"""---
@@ -570,6 +610,9 @@ title: "{title}"
 date: {format_date_for_front_matter(now)}
 categories: [sign-language, ai]
 tags: [sign-language, AI, ASL, research]
+paper_count: {len(analyzed_papers)}
+paper_catalog_json: >-
+{indent_block(paper_catalog_json)}
 ---
 
 """
